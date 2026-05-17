@@ -39,6 +39,24 @@ init_db()
 
 
 # ============================================================
+# HEALTH CHECK ROUTE - Root URL
+# ============================================================
+
+@app.route('/', methods=['GET'])
+def home():
+    """
+    Health check endpoint for the root URL.
+    Confirms that the backend API is online.
+    """
+    return jsonify({
+        "status": "online",
+        "service": "MeetIntel API Backend",
+        "message": "Backend server is running successfully!",
+        "version": "1.0.0"
+    }), 200
+
+
+# ============================================================
 # AUTH ROUTES - Signup and Login
 # ============================================================
 
