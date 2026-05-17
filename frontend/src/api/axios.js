@@ -9,7 +9,8 @@ import axios from 'axios';
 
 // Create an Axios instance with default settings
 const api = axios.create({
-  baseURL: '/api',  // All requests go to /api/* (proxied to Flask in dev)
+  // Use VITE_API_URL environment variable if available, otherwise fallback to local '/api'
+  baseURL: import.meta.env.VITE_API_URL || '/api',
   headers: {
     'Content-Type': 'application/json',
   },
